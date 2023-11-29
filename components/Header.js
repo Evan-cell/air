@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 function Header() {
   return (
     
@@ -14,8 +15,12 @@ function Header() {
             />
         </div>
         {/* middle */}
-        <div>
-            <input type="text" />
+        <div className='flex items-center md:border-2 rounded-full py-2 md:shadow-sm '>
+            <input type="text" 
+            placeholder='start your search'
+            className='pl-5 bg-transparent outline-none flex-grow text-gray-600 placeholder-gray-400 text-sm'
+            />
+            <MagnifyingGlassIcon className='hidden md:inline-flex h-8 bg-red-400 text-white rounded-full p-2 cursor-pointer md:mx-2' />
         </div>
         {/* right */}
         <div></div>
