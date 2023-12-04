@@ -5,7 +5,7 @@ import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { Calendar, DateRangePicker } from 'react-date-range';
 import { useRouter } from 'next/navigation';
-function Header() {
+function Header({placeholder}) {
     const [searchInput,setSearchInput] = useState('')
     const [startDate,setStartDate] = useState(new Date())
     const [endDate,setEndDate] = useState(new Date())
@@ -40,7 +40,7 @@ function Header() {
             <input type="text" 
             value={searchInput}
             onChange={(e)=>setSearchInput(e.target.value)}
-            placeholder='start your search'
+            placeholder={placeholder || 'start your search'}
             className='pl-5 bg-transparent outline-none flex-grow text-gray-600 placeholder-gray-400 text-sm'
             />
             <MagnifyingGlassIcon className='hidden md:inline-flex h-8 bg-red-400 text-white rounded-full p-2 cursor-pointer md:mx-2' />
@@ -71,7 +71,15 @@ function Header() {
                     onChange={(e)=>setNoOfGuests(e.target.value)}
                     type="number" className='w-12 pl-2 text-lg outline-none text-red-400' />
                 </div>
-                <div className='flex'>
+                <div onClick={()=>router.push({
+                    pathname: '/search',
+                    query: {
+                        location:searchInput,
+                        startDate:startDate.toISOString(),
+                        endDate: endDate.toISOString(),
+                        noOfGuests,
+                    }
+                })} className='flex'>
                     <button onClick={resetInput} className='flex-grow text-gray-500'>Cancel</button>
                     <button className='flex-grow text-red-400'>Search</button>
                 </div>

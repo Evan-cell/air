@@ -7,6 +7,7 @@ import SmallCard from '@/components/SmallCard'
 import Image from 'next/image'
 
 export default function Home({exploreData,cardsData}) {
+
   return (
     <div
     >
