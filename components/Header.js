@@ -4,6 +4,7 @@ import { MagnifyingGlassIcon,GlobeAltIcon,Bars3Icon,UserCircleIcon,UsersIcon } f
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { Calendar, DateRangePicker } from 'react-date-range';
+import { useRouter } from 'next/navigation';
 function Header() {
     const [searchInput,setSearchInput] = useState('')
     const [startDate,setStartDate] = useState(new Date())
@@ -21,11 +22,12 @@ function Header() {
      const resetInput = () => {
         setSearchInput('')
      }
+     const router = useRouter()
   return (
     
     <header className='sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md py-5 px-5 md:px-10'>
         {/* left */}
-        <div className='relative flex items-center h-10 cursor-pointer my-auto'>
+        <div onClick={()=>router.push("/")} className='relative flex items-center h-10 cursor-pointer my-auto'>
             <Image
             src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/1280px-Airbnb_Logo_B%C3%A9lo.svg.png'
             layout='fill'
