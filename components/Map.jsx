@@ -36,7 +36,7 @@ function Map({searchResults}) {
             longitude={viewport.longitude}
             zoom={viewport.zoom}
             mapStyle='mapbox://styles/gifefe/clps0lhha017u01o0bcvl2crs'
-            mapboxAccessToken={process.env.mapbox_key}
+            mapboxAccessToken='pk.eyJ1IjoiZ2lmZWZlIiwiYSI6ImNscHMwMHZjYzBkMnQyaW8xM3E5ZTVvdHIifQ.9Q09ldjmATPNo2w4Uu7OcQ'
             // Add other necessary properties
             onViewportChange={(nextViewport) => setViewport(nextViewport)}
         />
