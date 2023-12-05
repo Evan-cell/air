@@ -5,6 +5,7 @@ import { format } from 'date-fns';
 
 import React from 'react'
 import InfoCard from '@/components/InfoCard';
+import Map from '@/components/Map';
 
 function search({searchResults}) {
   console.log(searchResults)
@@ -47,6 +48,9 @@ function search({searchResults}) {
             ))}
             </div>
 
+        </section>
+        <section className='hidden xl:inline-flex xl:min-w-[600px]'>
+          <Map/>
         </section>
        </main>
 
